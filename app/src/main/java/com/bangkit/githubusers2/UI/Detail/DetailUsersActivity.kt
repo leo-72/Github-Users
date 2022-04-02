@@ -59,12 +59,21 @@ class DetailUsersActivity : AppCompatActivity() {
             if (it != null)
                 binding.apply {
                     txtNama.text = it.name
+                    if (it.name == null){
+                        txtNama.visibility = View.GONE
+                    }
                     txtUsername.text = it.login
-                    countRepository.text = it.public_repos.toString()
-                    countFollower.text = it.followers.toString()
-                    countFollowing.text = it.following.toString()
+                    if (it.login == null){
+                        txtUsername.visibility = View.GONE
+                    }
                     company.text = "Company: ${it.company}"
+                    if (it.company == null){
+                        company.visibility = View.GONE
+                    }
                     location.text = "Location: ${it.location}"
+                    if (it.location == null){
+                        location.visibility = View.GONE
+                    }
 
                     Glide.with(this@DetailUsersActivity)
                         .load(it.avatar_url)

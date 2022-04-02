@@ -11,25 +11,25 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("search/users")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     fun searchUsers(
         @Query("q") query: String
     ): Call<UsersResponse>
 
     @GET("users/{username}")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     fun detailUsers(
         @Path("username") username: String
     ): Call<ListDetailUsers>
 
     @GET("users/{username}/followers")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     fun followersUsers(
         @Path("username") username: String
     ): Call<ArrayList<ListUsers>>
 
     @GET("users/{username}/following")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     fun followingsUsers(
         @Path("username") username: String
     ): Call<ArrayList<ListUsers>>
