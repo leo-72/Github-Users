@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.githubusers2.Adapter.SectionsPagerAdapter
 import com.bangkit.githubusers2.Model.DetailUsersViewModel
@@ -52,7 +51,6 @@ class DetailUsersActivity : AppCompatActivity() {
         val avatar = intent.getStringExtra(KEY_AVATAR)
         val bundle = Bundle()
         bundle.putString(USERSNAME_USERS, username)
-//        bundle.putInt(KEY_ID, id)
 
 
         detailUserViewModel.usersDetail(username.toString())
@@ -102,9 +100,9 @@ class DetailUsersActivity : AppCompatActivity() {
             binding.toggleFav.isChecked = _isChecked
         }
 
-        detailUserViewModel.isLoading.observe(this, {
+        detailUserViewModel.isLoading.observe(this) {
             showLoading(it)
-        })
+        }
 
         detailUserViewModel.snackbarText.observe(this) {
             it.getContentIfNotHandled()?.let { snackBarText ->
@@ -123,7 +121,6 @@ class DetailUsersActivity : AppCompatActivity() {
         }
 
     }
-
 
 
     private fun showLoading(isLoading: Boolean) {
