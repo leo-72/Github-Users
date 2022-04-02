@@ -66,6 +66,9 @@ class DetailUsersActivity : AppCompatActivity() {
                     if (it.login == null){
                         txtUsername.visibility = View.GONE
                     }
+                    countRepository.text = it.public_repos.toString()
+                    countFollower.text = it.followers.toString()
+                    countFollowing.text = it.following.toString()
                     company.text = "Company: ${it.company}"
                     if (it.company == null){
                         company.visibility = View.GONE
